@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="farebean" type="rcpl.farebean"/>
+        <form-bean name="deletebean" type="rcpl.deletebean"/>
+        <form-bean name="registerbean" type="rcpl.registerbean"/>
+        <form-bean name="admin" type="rcpl.admin"/>
+        <form-bean name="searchbean" type="rcpl.searchbean"/>
+        <form-bean name="LoginBean" type="rcpl.LoginBean"/>
+        <form-bean name="SingupBean" type="rcpl.SingupBean"/>
+        <form-bean name="LoginBean" type="rcpl.LoginBean"/>
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action input="/index.jsp" name="SingupBean" path="/mintu" scope="session" type="rcpl.SingupAction">
+         <forward name="pass"  path="main"/>  
+         <forward name="fail"  path="main2"/>
+        </action>
+        <action input="/index.jsp" name="LoginBean" path="/chintu" scope="session" type="rcpl.LoginAction1">
+             <forward name="pass"  path="main1"/>  
+             <forward name="fail"  path="main"/>
+             <forward name="admin"  path="main5"/>
+            </action>
+           
+            <action input="/search.jsp" name="searchbean" path="/shiv" scope="session" type="rcpl.searchaction">
+             <forward name="pass"  path="main1"/>  
+              <forward name="fail"  path="main"/> 
+            </action>
+            <action input="/admin.jsp" name="admin" path="/saket" scope="session" type="rcpl.adminaction">
+              <forward name="pass"  path="main5"/>  
+              <forward name="fail"  path="main4"/>  
+            </action>
+            <action input="/Registration.jsp" name="registerbean" path="/shivesh" scope="session" type="rcpl.registeraction">
+             <forward name="pass"  path="main7"/>  
+              <forward name="fail"  path="main4"/> 
+              <forward name="not"  path="main10"/> 
+            </action>
+            <action input="/delete.jsp" name="deletebean" path="/abhi" scope="session" type="rcpl.deleteaction">
+                <forward name="pass"  path="main8"/>  
+              <forward name="fail"  path="main4"/> 
+                </action>
+                <action input="/fare.jsp" name="farebean" path="/abhinesh" scope="session" type="rcpl.fareaction">
+              <forward name="pass"  path="main9"/>  
+              <forward name="fail"  path="main4"/> 
+                    </action>
+            
+           
+            
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

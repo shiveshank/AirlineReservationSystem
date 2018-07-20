@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    
+    <definition name="main" path="/index.jsp">
+       
+    </definition>
+    
+    <definition name="main1" path="/Main.html">
+       
+    </definition>
+    
+    <definition name="main2" path="/fail.jsp">
+       
+    </definition>
+      
+    <definition name="main3" path="/user.jsp">
+       
+    </definition>
+   
+    <definition name="main4" path="/fail.jsp">
+       
+    </definition>
+    <definition name="main5" path="/admin.jsp">
+       
+    </definition>
+    
+   <definition name="main6" path="/Registration.jsp">
+       
+    </definition>
+    <definition name="main7" path="/registerbooked.jsp">
+       
+    </definition>
+    <definition name="main8" path="/finaldelete.jsp">
+       
+    </definition>
+    <definition name="main9" path="/fareinserted.jsp">
+       
+    </definition>
+    <definition name="main10" path="/registernot.jsp">
+       
+    </definition>
+<!-- sample tiles definitions
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>
+
+</tiles-definitions>
